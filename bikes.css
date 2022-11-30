@@ -46,7 +46,7 @@ main{
     padding-left: 0;
 }
 .thumbnails-item{
-    border: solid 2px goldenrod;
+    border: solid 1.5px goldenrod;
     margin-top: 2vh;
     border-radius: 10%;
     overflow-y: hidden;
