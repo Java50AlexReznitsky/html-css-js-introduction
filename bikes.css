@@ -52,7 +52,7 @@ main{
     overflow-y: hidden;
 }
 .thumbnails-anchor{
-
+    text-decoration: none;
 }
 .thumbnails-image{
     width: 25vw;
@@ -63,7 +63,7 @@ main{
     text-align: center;
     background-color: goldenrod;
     color: black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 a{
     display: flex;
