@@ -45,13 +45,12 @@ body{
     border: solid 2px blueviolet;
     margin-top: 2vh;
     border-radius: 25%;
+    overflow-y: hidden;
 
 }
 .thumbnails-image{
     width: 25vw;
     height: 15vw;
-    border-top-right-radius: 25%;
-    border-top-left-radius: 25%;
 }
 .thumbnails-title{
     display: block;
