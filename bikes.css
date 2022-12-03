@@ -1,3 +1,14 @@
+@font-face{
+    font-family: airstream;
+    src: url(styles/fonts/Airstream-webfont.svg);
+    src: url(styles/fonts/Airstream-webfont.woff);
+}
+@font-face{
+    font-family: lakeshor;
+    src: url(styles/fonts/LAKESHOR-webfont.svg);
+    src: url(styles/fonts/LAKESHOR-webfont.woff);
+}
+
 html{
     height: 100%;
 }
@@ -12,15 +23,21 @@ body{
     display: block;
     text-align: center;
     background-color: rgb(80, 80, 80);
-    font-size: 1.5em;
     text-transform: uppercase;
     color: goldenrod;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5em;
 }
-main{
+h2{
+    margin-top: 10px;
+}
+.main-class{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    flex-grow: 0.5;
 }
 .details-container{
     display: flex;
@@ -28,8 +45,9 @@ main{
     align-items: center;
 }
 .details-image{
-    width: 80vw;
+    width: 65vw;
     height: 45vw;
+    border-radius: 5%;
 }
 .details-title{
     display: block;
@@ -46,10 +64,11 @@ main{
     padding-left: 0;
 }
 .thumbnails-item{
-    border: solid 1.5px goldenrod;
+    border: solid 2px goldenrod;
     margin-top: 2vh;
     border-radius: 10%;
     overflow-y: hidden;
+    
 }
 .thumbnails-anchor{
     text-decoration: none;
@@ -57,16 +76,77 @@ main{
 .thumbnails-image{
     width: 25vw;
     height: 15vw;
+    
 }
 .thumbnails-title{
     display: block;
     text-align: center;
     background-color: goldenrod;
     color: black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:lakeshor;
     font-size: 0.85em;
 }
 a{
     display: flex;
     flex-direction: column;
+}
+@media(min-width:560px){
+    .main-class{
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        overflow: hidden;
+        flex-grow: 1;
+    }
+    .thumbnails-list{
+        order:-1;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        max-height: 80vh;
+        justify-content: flex-start;
+    }
+    .thumbnails-item{
+        min-height: 18vw;
+    }
+    .thumbnails-title{
+        height: 5vw;
+        display: flex;
+        justify-content: center;
+    }
+    .details-image{
+        width: 55vw;
+        height: 35vw;
+        border-radius: 5%;
+    }
+
+}
+@media(min-width:1000px){
+    .thumbnails-list{
+        order:-1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-height: 80vh;
+        justify-content: space-evenly;
+    }
+    .thumbnails-item{
+        height: 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .thumbnails-title{
+        font-size: 1.5em;
+        display:flex;
+        flex-direction:column;
+    }
+    .thumbnails-image{
+        width: 18vw;
+        height: 14vw;
+    }
+    .details-image{
+        width: 55vw;
+        height: 30vw;
+        border-radius: 5%;
+    }
+
 }

@@ -1,0 +1,118 @@
+@font-face{
+    font-family: airstream;
+    src: url(fonts/Airstream-webfont.svg);
+    src: url(fonts/Airstream-webfont.woff);
+}
+@font-face{
+    font-family: lakeshor;
+    src: url(fonts/LAKESHOR-webfont.svg);
+    src: url(fonts/LAKESHOR-webfont.woff);
+}
+@keyframes leftToRight{
+    from{left: 0px;}
+    to{left: 200px;}
+}
+
+html {
+    height: 100%
+}
+body {
+    height: 100%;
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.logo {
+    display: block;
+    text-align: center;
+    background-color: beige;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-family: lakeshor;
+    font-size: 1.2em;
+    
+}
+h2{
+    margin-top: 10px;
+
+}
+.main-class {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.details-image {
+    width: 55vw;
+    height: 35vw;
+    border-radius: 5%;
+}
+.details-title {
+    display: block;
+    background-color: aliceblue;
+}
+.thumbnails-list {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 30vh;
+    overflow-y: scroll;
+    list-style: none;
+    justify-content: space-around;
+    padding-left: 0;
+}
+.thumbnails-item {
+    border: solid 3px blueviolet;
+    margin-top: 2vh;
+    border-radius: 25%;
+    overflow-y: hidden;
+}
+.thumbnails-anchor {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+
+}
+.thumbnails-image {
+    width: 25vw;
+    height: 15vw
+}
+.thumbnails-title {
+    display: block;
+    text-align: center;
+    background-color: antiquewhite;
+}
+@media(min-width:560px){
+    .main-class{
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+    }
+    .thumbnails-list{
+        order: -1;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        max-height: 60vh;
+        justify-content: flex-start;
+    }
+    .thumbnails-item{
+        min-height: 18vw;
+    }
+    .thumbnails-title{
+        height: 5vw;
+        display: flex;
+        justify-content: center;
+    }
+    .details-container{
+    
+    }
+}
+@media(min-width:1000px){
+
+}
