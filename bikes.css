@@ -8,7 +8,6 @@
     src: url(styles/fonts/LAKESHOR-webfont.svg);
     src: url(styles/fonts/LAKESHOR-webfont.woff);
 }
-
 html{
     height: 100%;
 }
@@ -18,6 +17,10 @@ body{
     display: flex;
     flex-direction: column;
     margin: 0;
+    background-image: url(images/bike_Images/carbon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 .logo{
     display: block;
@@ -68,7 +71,6 @@ h2{
     margin-top: 2vh;
     border-radius: 10%;
     overflow-y: hidden;
-    
 }
 .thumbnails-anchor{
     text-decoration: none;
@@ -76,7 +78,6 @@ h2{
 .thumbnails-image{
     width: 25vw;
     height: 15vw;
-    
 }
 .thumbnails-title{
     display: block;
@@ -118,7 +119,6 @@ a{
         height: 35vw;
         border-radius: 5%;
     }
-
 }
 @media(min-width:1000px){
     .thumbnails-list{
@@ -129,23 +129,24 @@ a{
         justify-content: space-evenly;
     }
     .thumbnails-item{
-        height: 10vh;
+        min-height: 15vw;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
     .thumbnails-title{
-        font-size: 1.5em;
+        font-size: 1.8em;
+        height: 3vw;
         display:flex;
         flex-direction:column;
     }
     .thumbnails-image{
         width: 18vw;
-        height: 14vw;
+        height: 12vw;
     }
     .details-image{
         width: 55vw;
-        height: 30vw;
+        height: 35vw;
         border-radius: 5%;
     }
 
