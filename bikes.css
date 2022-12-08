@@ -8,8 +8,23 @@
     src: url(styles/fonts/LAKESHOR-webfont.svg);
     src: url(styles/fonts/LAKESHOR-webfont.woff);
 }
+@keyframes textAnimation{
+    from{color: goldenrod;}
+    to{color: rgb(80, 80, 80);}
+}
+/* @keyframes leftToRight{
+    from{margin-left: 100%;width: 300%;}
+    to{margin-left: 0%;width: 100%;}
+} */
 html{
     height: 100%;
+}
+body{
+    --thumbnails-image-width:25vw;
+    --thumbnails-image-height:15vw;
+    --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.33);
+    --details-image-width:70vw;
+    --details-image-height:44vw;
 }
 body{
     height: 100%;
@@ -20,18 +35,25 @@ body{
     background-image: url(images/bike_Images/carbon.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 .logo{
     display: block;
     text-align: center;
-    background-color: rgb(80, 80, 80);
+    background-color: rgba(80, 80, 80, 0.9);
     text-transform: uppercase;
     color: goldenrod;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.5em;
+    font-size: 1.8em;
+    border: dashed;
+}
+.textAnim{
+    text-shadow: 1px 1px 2px black;
+    animation-name: textAnimation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 h2{
     margin-top: 10px;
@@ -47,15 +69,22 @@ h2{
     flex-direction: column;
     align-items: center;
 }
+.details-frame{
+    position: relative;
+}
 .details-image{
-    width: 65vw;
-    height: 45vw;
+    width:var(--details-image-width);
+    height:var(--details-image-height);
     border-radius: 5%;
 }
 .details-title{
     display: block;
     background-color: inherit;
     color: goldenrod;
+    background-color: black;
+    position: absolute;
+    left: -2vw;
+    bottom: 3vh;
 }
 .thumbnails-list {
     display: flex;
@@ -71,13 +100,17 @@ h2{
     margin-top: 2vh;
     border-radius: 10%;
     overflow-y: hidden;
+    min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+}
+.thumbnails-item:hover{
+    transform: scale(1.1);
 }
 .thumbnails-anchor{
     text-decoration: none;
 }
 .thumbnails-image{
-    width: 25vw;
-    height: 15vw;
+    width: var(--thumbnails-image-width);
+    height: var(--thumbnails-image-height);
 }
 .thumbnails-title{
     display: block;
@@ -85,13 +118,21 @@ h2{
     background-color: goldenrod;
     color: black;
     font-family:lakeshor;
-    font-size: 0.85em;
+    font-size: 0.95em;
+    height: var(--thumbnails-title-height);
 }
 a{
     display: flex;
     flex-direction: column;
 }
 @media(min-width:560px){
+    body{
+        --thumbnails-image-width:23vw;
+        --thumbnails-image-height:13vw;
+        --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.25);
+        --details-image-width:50vw;
+        --details-image-height:30vw;
+    }
     .main-class{
         flex-direction: row;
         justify-content: space-evenly;
@@ -103,8 +144,14 @@ a{
         order:-1;
         flex-direction: column;
         flex-wrap: nowrap;
-        max-height: 80vh;
+        max-height: 70vh;
         justify-content: flex-start;
+        padding-right: 1vw;
+        /* position: relative;
+        animation-name: leftToRight;
+        animation-duration: 3s; */
+
+
     }
     .thumbnails-item{
         min-height: 18vw;
@@ -114,13 +161,15 @@ a{
         display: flex;
         justify-content: center;
     }
-    .details-image{
-        width: 55vw;
-        height: 35vw;
-        border-radius: 5%;
-    }
 }
 @media(min-width:1000px){
+    body{
+        --thumbnails-image-width:18vw;
+        --thumbnails-image-height:12vw;
+        --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.25);
+        --details-image-width:50vw;
+        --details-image-height:30vw;
+    }
     .thumbnails-list{
         order:-1;
         flex-direction: row;
@@ -136,18 +185,21 @@ a{
     }
     .thumbnails-title{
         font-size: 1.8em;
-        height: 3vw;
+        height: var(--thumbnails-title-height);
         display:flex;
         flex-direction:column;
     }
     .thumbnails-image{
-        width: 18vw;
-        height: 12vw;
+        width: var(--thumbnails-image-width);
+        height: var(--thumbnails-image-height);
     }
     .details-image{
-        width: 55vw;
-        height: 35vw;
+        width: var(--details-image-width);
+        height: var(--details-image-height);
         border-radius: 5%;
+    }
+    .logo{
+        font-size: 2.5em;
     }
 
 }
