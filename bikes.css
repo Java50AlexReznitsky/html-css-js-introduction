@@ -81,10 +81,12 @@ h2{
     display: block;
     background-color: inherit;
     color: goldenrod;
-    background-color: black;
+    background-color: transparent;
     position: absolute;
     left: -2vw;
     bottom: 3vh;
+    font-size: 3vw;
+    font-family: airstream;
 }
 .thumbnails-list {
     display: flex;
@@ -101,9 +103,13 @@ h2{
     border-radius: 10%;
     overflow-y: hidden;
     min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+    
 }
 .thumbnails-item:hover{
+    border: none;
     transform: scale(1.1);
+    transition-duration: 1s;
+    box-shadow: 5px 5px 5px goldenrod;
 }
 .thumbnails-anchor{
     text-decoration: none;
@@ -155,11 +161,13 @@ a{
     }
     .thumbnails-item{
         min-height: 18vw;
+        margin: 2vh;
     }
     .thumbnails-title{
         height: 5vw;
         display: flex;
         justify-content: center;
+        font-size: 1.4em;
     }
 }
 @media(min-width:1000px){
@@ -182,6 +190,7 @@ a{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin: 2vh;
     }
     .thumbnails-title{
         font-size: 1.8em;
@@ -197,6 +206,10 @@ a{
         width: var(--details-image-width);
         height: var(--details-image-height);
         border-radius: 5%;
+    }
+    .details-container{
+        margin-left: 3vw;
+        margin-right: 3vw;
     }
     .logo{
         font-size: 2.5em;
