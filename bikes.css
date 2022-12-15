@@ -157,8 +157,8 @@ a{
 }
 @media(min-width:560px){
     body{
-        --thumbnails-image-width:23vw;
-        --thumbnails-image-height:13vw;
+        --thumbnails-image-width:15vw;
+        --thumbnails-image-height:11vw;
         --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.25);
         --details-image-width:50vw;
         --details-image-height:30vw;
@@ -185,14 +185,16 @@ a{
         justify-content: flex-start;
     }
     .thumbnails-item{
-        min-height: 18vw;
+        min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+        max-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+        min-width: var(--thumbnails-image-width);
+        max-width: var(--thumbnails-image-width);
         margin: 2vh;
     }
     .thumbnails-title{
         height: 5vw;
         display: flex;
         justify-content: center;
-        font-size: 1.4em;
     }
     .hidden .thumbnails-list{
         flex-direction: row;
@@ -203,8 +205,8 @@ a{
 }
 @media(min-width:1000px){
     body{
-        --thumbnails-image-width:18vw;
-        --thumbnails-image-height:12vw;
+        --thumbnails-image-width:15vw;
+        --thumbnails-image-height:11vw;
         --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.25);
         --details-image-width:50vw;
         --details-image-height:30vw;
@@ -217,7 +219,10 @@ a{
         justify-content: space-evenly;
     }
     .thumbnails-item{
-        min-height: 15vw;
+        min-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+        max-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+        min-width: var(--thumbnails-image-width);
+        max-width: var(--thumbnails-image-width);
         display: flex;
         flex-direction: column;
         justify-content: center;
