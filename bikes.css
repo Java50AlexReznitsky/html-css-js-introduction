@@ -72,6 +72,7 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 5s cubic-bezier(0.6, 2, 0.2, 1);/**/
 }
 .hidden .details-container{ /*if any parent has a ".hidden" class, details-container would "display:none;"*/
     display: none;
@@ -96,6 +97,9 @@ h2{
     position: absolute;
     bottom: 3vh;
     left: -2vw;
+}
+#audio{
+    background-color: transparent;
 }
 #hide-button{
     position: absolute;
@@ -155,8 +159,13 @@ a{
     border: none;
     font-size: 3vw;
 }
+.is-point{
+    transform: scale(0.001);
+    transition: 0s;
+}
 @media(min-width:560px){
     body{
+        overflow: hidden;
         --thumbnails-image-width:15vw;
         --thumbnails-image-height:11vw;
         --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.25);
