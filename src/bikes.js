@@ -7,6 +7,7 @@ const mainElement = document.querySelector(".main-class");
 const hideButtonElement = document.querySelector("#hide-button");
 const HIDDEN = 'hidden';
 const IS_POINT = "is-point"
+const IS_MUTE = "muted"
 function showDetails(){
     mainElement.classList.remove("hidden");
     detailsContainer.classList.add(IS_POINT)
@@ -16,6 +17,7 @@ function showDetails(){
 }
 function hideDetails(){
     mainElement.classList.add(HIDDEN)
+    detailsSound.src = IS_MUTE
 }  
 function setDetails(anchor){
     const dataImage = anchor.getAttribute("data-details-image");
