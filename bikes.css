@@ -236,7 +236,7 @@ a{
         margin: 2vh;
     }
     .thumbnails-title{
-        font-size: 1.8em;
+        font-size: 1.5em;
         height: var(--thumbnails-title-height);
         display:flex;
         flex-direction:column;
