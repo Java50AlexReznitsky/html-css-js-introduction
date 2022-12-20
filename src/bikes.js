@@ -6,10 +6,9 @@ const detailsContainer = document.querySelector(".details-container")
 const mainElement = document.querySelector(".main-class");
 const hideButtonElement = document.querySelector("#hide-button");
 const HIDDEN = 'hidden';
-const IS_POINT = "is-point"
-const IS_MUTE = "muted"
+const IS_POINT = "is-point";
 function showDetails(){
-    mainElement.classList.remove("hidden");
+    mainElement.classList.remove(HIDDEN);
     detailsContainer.classList.add(IS_POINT)
     setTimeout(function(){
         detailsContainer.classList.remove(IS_POINT)
@@ -17,13 +16,15 @@ function showDetails(){
 }
 function hideDetails(){
     mainElement.classList.add(HIDDEN)
-    detailsSound.src = IS_MUTE
-}  
+}
+function pauseAudio(){
+   detailsSound.pause() 
+} 
 function setDetails(anchor){
     const dataImage = anchor.getAttribute("data-details-image");
     detailsImage.src = dataImage;
-    detailsSound.src = anchor.getAttribute("data-details-sound");
     detailsTitle.innerHTML = anchor.getAttribute("data-details-title");
+    detailsSound.src = anchor.getAttribute("data-details-sound");
     showDetails()
 }
 for(let i = 0; i < anchorElements.length; i++){
@@ -32,3 +33,4 @@ for(let i = 0; i < anchorElements.length; i++){
     })
 }
 hideButtonElement.addEventListener("click", hideDetails);
+hideButtonElement.addEventListener("click", pauseAudio);

@@ -61,6 +61,7 @@ h2{
     flex-direction: column;
     justify-content: center;
     flex-grow: 0.5;
+    
 }
 .main-class.hidden{
     justify-content: space-around;
@@ -97,9 +98,6 @@ h2{
     position: absolute;
     bottom: 3vh;
     left: -2vw;
-}
-#audio{
-    background-color: transparent;
 }
 #hide-button{
     position: absolute;
