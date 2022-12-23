@@ -45,7 +45,16 @@ function computeExpression(expressionStr) {
     //task for searching in Internet
     //only one line code
     //how to use Internet for finding required code
+    let res;
+    try{
+        res = eval(expressionStr);
+        return res;
+    }catch(e){
+        res = "NaN"
+    }
+    return res;
 }
+console.log("Compute expression test: " + computeExpression("5 + c"))
 //console.log(computeExpression("9000 / ((10 + 20) ** 2)")) ; //prints 10
 //console.log(computeExpression("9 + 100 / 2")); //prints 59
 function printAnanas() {
