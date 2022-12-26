@@ -1,88 +1,80 @@
-//numbers
-// let num = 25.325;
-// num = 40.5;
+// let str = "123m"
+// let num = parseInt(str) + 10 + 'm';
+// let str1 = "js.5";
+// let numInt = parseInt (str1, 32);
+// let numFloat = parseFloat (str1);
 
-//num = Math.floor(num);
-//num = Math.trunc(num);
-//num = Math.ceil(num);
-// num = Math.round(num);
-// num **= 2; // num = num ** 2
-
-//strings
-// let str = "a'bc'd";
-// let str1 = 'a"bc"d';
-// let res = +"123" + +56;
-// let res1 = "123" - 56;
-// let res2 = Math.round("123" / 56);
-// let res3 = "123" / "2";
-// let res4 = "ab" / 8;
-
-//boolean
-// let a = 100;
-// let error = true;
-// let res = true + true;
-// let res1 = true && false;
-// let res2 = a || 256 / a;
-// let message = error && "some error happenning";
-// let re3 = a || 10;
-// let res4 = "123" > "9";
-// let res5 = "123" > 9;
-//equilty operators
-let res10 = "123" == 123; //true
-let res11 = "123" === 123; //false
-//string functions for HW
-let str = "aBdTYg";
-str = str.toLowerCase(); //"abcdtyg"
-
-// HW #11
-function getDigitsSum(number) {
-    //computes sum of all digits in the integer part of the number
-    // number may be either negative or positive or 0
-}
-function computeExpression(expressionStr) {
-    //example of expression "9000 / ((10 + 20) ** 2)"
-    //returns 10
-    //task for searching in Internet
-    //only one line code
-    //how to use Internet for finding required code
-    let res;
-    try{
-        res = eval(expressionStr);
-        return res;
-    }catch(e){
-        res = "NaN"
+function myParseInt(str, base){
+    base = base || 10;
+    let res = 0;
+    let sign;
+    if(getCode(str[0]) >= base){
+        return NaN;
     }
+    let i = 0;
+    if(str[i] === '-' || str[i] === '+'){
+        sign = str[i]
+        i++
+    }
+    for(i; i < str.length; i++){
+        if(str[i] === '.' || getCode(str[i]) >= base){
+            break;
+        }
+    res = res * base + getCode(str[i])
+    }
+    return sign? Number(sign + res): res;
+}
+
+function getCode(symbol){
+    symbol = symbol.toLowerCase();
+    const codeA = 'a'.charCodeAt();
+    const res =  symbol <= '9'? +symbol : symbol.charCodeAt() - codeA + 10;
     return res;
 }
-console.log("Compute expression test: " + computeExpression("5 + c"))
-//console.log(computeExpression("9000 / ((10 + 20) ** 2)")) ; //prints 10
-//console.log(computeExpression("9 + 100 / 2")); //prints 59
-function printAnanas() {
-    //TODO 
-    //To use only capital "A" "S"
-    //print "ananas"
-}
-printAnanas() //there should be printed "ananas"
+// console.log(myParseInt("+168.35"));
+// console.log(myParseInt("18f"));
+// console.log(myParseInt("-123"));
+// console.log(myParseInt("123m"));
+// console.log(myParseInt("m123"));
+// console.log(myParseInt("-ff", 16));
 
-function reverse(number) {
-    //returns string with digits of a given number in the reversed order
-    //number may be either positive or negative
-    //consider only integer part, fractional part should be removed
-    //example reverse(1234.56) should return "4321"
-    //example reverse (-1234) should return "-4321"
+function myToString(number, base){
+    base = base || 10;
+    let signPos;
+    number > 0? signPos = true: signPos = false;
+    let numToStr = '' + Math.abs(number);
+    let res = '';
+    const splitNum = numToStr.split(".");
+    let wholeNum = +splitNum[0];
+    let fractNum = +splitNum[1];
+    res = res + digitToSymbol(wholeNum, base);
+    if(fractNum > 0){
+        res = res + '.' + digitToSymbol(fractNum, base);
+    }
+    return signPos? res: '-' + res;
 }
-let n = 10;
-let count = 0;
-// while (n > 0) {
-//     n--;
-//     count++;
-// }
-// do {
-//   n--;
-//   count++
-// } while(n > 0);
-while(--n) {
-    count++;
+function digitToSymbol(number, base){
+    let result = ''
+    do{
+        const digit = number % base;
+        const symbol = getSymbol(number % base);
+        result = symbol + result;
+        number = Math.trunc(number / base);
+
+    }while(number)
+    return result;
 }
-let d;
-// 3 + 7 * "10"
+function getSymbol(digit){
+    const codeA = 'a'.charCodeAt();//97
+    let symbol;
+    if(digit < 10){
+        symbol = + digit;
+    }else{
+        const codeASCII = digit - 10 + codeA
+        symbol = String.fromCharCode(codeASCII);
+    }
+    return symbol;
+}let number = -123.45
+console.log('toString: ' + number.toString(16))
+console.log('myToString: ' + myToString(number, 16))
+
