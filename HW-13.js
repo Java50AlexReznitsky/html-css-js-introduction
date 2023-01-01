@@ -1,15 +1,11 @@
-const randomArr = [];
-for(let i = 0; i < 6; i++){
-    randomArr.push([getRandomNumber(0,1)])
-}
-
-function getHtmlUl(array){
-    const htmlString = '<ul class="list_class">';
-    for(let i = 0; i < 6; i++){
-        let colorAssigment = array[i] === 0? 'white': 'black';
-        htmlString += `<li class="item_class"><div class=${colorAssigment}></div></li>`;
+function getHtmlUl(elementsNum){
+    let htmlString = '<ul class="list_class">';
+    const htmlArr = [];
+    for(let i = 0; i < elementsNum; i++){
+        let colorAssigment = getRandomNumber(0,1) === 0? 'white': 'black';
+         htmlArr.push(`<li class="item_class"><div class=${colorAssigment}></div></li>`);
     }
-    htmlString += '</ul>';
+    htmlString += htmlArr.join('') + '</ul>';
     return htmlString;
 }
 function getRandomNumber(min, max){
@@ -17,7 +13,4 @@ function getRandomNumber(min, max){
     max = Math.trunc(max);
     return min + Math.trunc(Math.random() * (max - min +1)); 
 }
-for(let i = 0; i < 10; i++){
-    console.log(getRandomNumber(0, 10));
-
-}
+console.log(getHtmlUl(5));
