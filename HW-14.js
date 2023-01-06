@@ -8,10 +8,8 @@ function coloringString(str1, str2){
         if(char === strAr1[index]){
             return "green"
         }
-        else if(strAr1.includes(char)){
-            return "yellow"
-        }else{
-            return "red"
+        else{
+            return strAr1.includes(char)? "yellow": "red";
         }
     })
 }
