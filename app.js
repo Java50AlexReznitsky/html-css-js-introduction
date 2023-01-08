@@ -1,4 +1,4 @@
-const array = [123, 9, 28, 3, 44, -123];
+let array = [123, 9, 28, 3, 44, -123];
 array.sort(function(e1, e2){
     let res = e1.toString().length - e2.toString().length;
     if (!res) {
@@ -6,7 +6,7 @@ array.sort(function(e1, e2){
     }
     return res;
 });
-// console.log(`result of sorting [123, 9, 28, 3, 44] is ${array}`)
+console.log(`result of sorting [123, 9, 28, 3, 44] is ${array}`)
 //HW #15
 /************************************************************************************** */
 //task sort.1
@@ -31,18 +31,18 @@ function evenAscOddDesc(array) {
 /*************************************************************************** */
 //reduce
 //find sum of the numbers in an array
-// function sum(array) {
-//     const res = array.reduce(function(res, cur){
-//         return res + cur;
-//     } );
-//     return res;
-// }
-// console.log(`sum([1,2,3,4,5]) returns ${sum([1,2,3,4,5])}`);
-// console.log([1, 2, 3, 4].reduce(function (x, y) {
-//     console.log(x, y);
-//     return x + y;
+function sum(array) {
+    const res = array.reduce(function(res, cur){
+        return res + cur;
+    } );
+    return res;
+}
+console.log(`sum([1,2,3,4,5]) returns ${sum([1,2,3,4,5])}`);
+console.log([1, 2, 3, 4].reduce(function (x, y) {
+    console.log(x, y);
+    return x + y;
   
-// },5)); //1-function call x = 1, y = 2; 2-function call x = undefined, y = 3; 3-th x = undefined, y = 4
+ },5)); //1-function call x = 1, y = 2; 2-function call x = undefined, y = 3; 3-th x = undefined, y = 4
 console.log([[0, 1], [2, 3]].reduce(
     (acc, cur) => {
       return acc.concat(cur);
