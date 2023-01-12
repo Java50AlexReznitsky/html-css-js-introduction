@@ -1,8 +1,7 @@
 .guess-letters {
   margin-top: 3vh;
-  display: flex;
+  display:flex;
   flex-direction: row;
-  font-size: 3vw;
 }
 .game-status {
   margin-top: 3vh;
@@ -12,11 +11,16 @@
 .play-again {
   display: none;
 }
-.letter-box {
-  width: 7vw;
-  height: 7vw;
+.letter {
+  width: 5vw;
+  height: 5vw;
   background-color: ghostwhite;
   border: 1px solid black;
   text-align: center;
   font-size: 2em;
+}
+html{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
