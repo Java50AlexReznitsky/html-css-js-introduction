@@ -16,8 +16,6 @@ function evenAscOddDesc(array) {
   return array.sort((e1, e2) => {
     if (e1 % 2 === 0 && e2 % 2 !== 0) {
       return -1;
-    } else if (e2 % 2 === 0 && e1 % 2 !== 0) {
-      return 1;
     } else if (e1 % 2 === 0 && e2 % 2 === 0) {
       return e1 - e2;
     } else if (e1 % 2 !== 0 && e2 % 2 !== 0) {
@@ -25,4 +23,36 @@ function evenAscOddDesc(array) {
     }
   });
 }
-console.log(`Even asc, odd desc: ${evenAscOddDesc(ar1)}`);
+console.log(`Even ascending, odd descending: ${evenAscOddDesc(ar1)}`);
+
+const ar2 = [1, 3, 0, 24, 335, -125];
+function getMin(array) {
+  return array.reduce((accum, item) =>  item < accum ? item : accum, Infinity);
+}
+console.log(`Get min of [1, 3, 0, 24, 335, -125] : ${getMin(ar2)}`);
+function getMax(array){
+  return array.reduce((accum, item) => item > accum? item:accum,-Infinity)
+}
+console.log(`Get max of [1, 3, 0, 24, 335, -125] : ${getMax(ar2)}`);
+
+function getAvg(array){
+  return +((array.reduce((accum,item)=>accum +=item,0) / array.length).toFixed(2))
+}
+console.log(`Get avg of [1, 3, 0, 24, 335, -125] : ${getAvg(ar2)}`);
+function getMinAvgMax(array){
+  const result =[];
+  let min,avg,max,sum = 0;
+  result[0] = min;
+  result[1] = avg;
+  result[2] = max;
+  avg = array.reduce((accum,item) => {
+    if(item < array[0]){
+      min = item;
+    }else if(item > array[0]){
+      max = item
+    }
+    return accum+ item;
+  }) / array.length;
+  return result;
+}
+console.log(getMinAvgMax(ar2))
