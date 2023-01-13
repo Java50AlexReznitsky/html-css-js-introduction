@@ -1,8 +1,9 @@
+const ar1 = [-3, 8, 7, -4, 0];
+const ar2 = [1, 3, 0, 24, 335, -125];
 //1.__________________________________________________
 function evenOddSort(array) {
   return array.sort((e1, e2) => (Math.abs(e1) % 2) - (Math.abs(e2) % 2));
 }
-const ar1 = [-3, 8, 7, -4, 0];
 console.log(`Even first: ${evenOddSort(ar1)}`);
 
 //2.__________________________________________________
@@ -25,7 +26,6 @@ function evenAscOddDesc(array) {
 }
 console.log(`Even ascending, odd descending: ${evenAscOddDesc(ar1)}`);
 
-const ar2 = [1, 3, 0, 24, 335, -125];
 function getMin(array) {
   return array.reduce((accum, item) =>  item < accum ? item : accum, Infinity);
 }
@@ -40,19 +40,15 @@ function getAvg(array){
 }
 console.log(`Get avg of [1, 3, 0, 24, 335, -125] : ${getAvg(ar2)}`);
 function getMinAvgMax(array){
-  const result =[];
-  let min,avg,max,sum = 0;
-  result[0] = min;
-  result[1] = avg;
-  result[2] = max;
-  avg = array.reduce((accum,item) => {
+  const result = [];
+  result[1] = array.reduce((accum,item) => {
     if(item < array[0]){
-      min = item;
+      result[0] = item;
     }else if(item > array[0]){
-      max = item
+      result[2] = item
     }
     return accum+ item;
-  }) / array.length;
+  }) / array.length
   return result;
 }
-console.log(getMinAvgMax(ar2))
+console.log(getMinAvgMax(ar2));
