@@ -67,7 +67,7 @@ function coloringWord(trialWord) {
 function getColor(letter, index) {
     let res = "red"
     if (word.includes(letter)) {
-        res = word[index] == letter ? "green" : "yellow"
+        res = word[index] == letter ? "green" : "gold"
     }
     return res;
 }

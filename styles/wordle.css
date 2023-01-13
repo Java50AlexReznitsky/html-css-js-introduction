@@ -18,9 +18,11 @@
   border: 1px solid black;
   text-align: center;
   font-size: 2em;
+  border-radius: 1vw;
 }
-html{
+body{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  margin-top: 10vw;
 }
