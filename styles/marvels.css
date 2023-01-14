@@ -1,8 +1,8 @@
-.word{
+.word {
     display: flex;
-
 }
-.letter{
+
+.letter {
     margin-left: 1vw;
     background-color: black;
     color: black;

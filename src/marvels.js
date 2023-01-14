@@ -14,12 +14,12 @@ let initialLetterNumbers;
 let remainedLetterNumber;
 //functions
 function startGame() {
-    wordInputElement.value = '';
-    wordInputElement.readOnly = true;
-    questionElement.innerHTML = questionWords[currentIndex][0]
-    playAgain.style.display = "none"
-    resultMessage.innerHTML='';
-    wordElement.innerHTML = getWordDivs;
+  wordInputElement.value = '';
+  wordInputElement.readOnly = true;
+  questionElement.innerHTML = questionWords[currentIndex][0]
+  playAgain.style.display = "none"
+  resultMessage.innerHTML = '';
+  wordElement.innerHTML = getWordDivs;
 }
 function checkWord() {
   //TODO
