@@ -17,9 +17,17 @@ function startGame() {
   wordInputElement.value = '';
   wordInputElement.readOnly = true;
   questionElement.innerHTML = questionWords[currentIndex][0]
+  wordElement.innerHTML = fillLettersDivs();//
   playAgain.style.display = "none"
   resultMessage.innerHTML = '';
   wordElement.innerHTML = getWordDivs;
+}
+function fillLettersDivs(){
+  const arrayWord = Array.from(questionWords[currentIndex][1]);
+  wordElement.innerHTML = arrayWord.reduce(function(res,cur){
+    res = res + '<div class="letter"></div>'
+        return res;
+  },'');
 }
 function checkWord() {
   //TODO
