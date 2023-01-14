@@ -1,17 +1,15 @@
-const ar1 = [-3, 8, 7, -4, 0];
+const ar1 = [-3, 8, 7, 8, -4, 0];
 const ar2 = [1, 3, 0, 24, 335, -125];
 //1.__________________________________________________
 function evenOddSort(array) {
   return array.sort((e1, e2) => (Math.abs(e1) % 2) - (Math.abs(e2) % 2));
 }
 console.log(`Even first: ${evenOddSort(ar1)}`);
-
 //2.__________________________________________________
 function oddEvenSort(array) {
   return array.sort((e1, e2) => (Math.abs(e2) % 2) - (Math.abs(e1) % 2));
 }
 console.log(`Odd first: ${oddEvenSort(ar1)}`);
-
 //3._________________________________________________
 function evenAscOddDesc(array) {
   return array.sort((e1, e2) => {
@@ -25,30 +23,33 @@ function evenAscOddDesc(array) {
   });
 }
 console.log(`Even ascending, odd descending: ${evenAscOddDesc(ar1)}`);
-
+//4.________________________________________________
 function getMin(array) {
-  return array.reduce((accum, item) =>  item < accum ? item : accum, Infinity);
+  return array.reduce((accum, item) => item < accum ? item : accum, Infinity);
 }
 console.log(`Get min of [1, 3, 0, 24, 335, -125] : ${getMin(ar2)}`);
-function getMax(array){
-  return array.reduce((accum, item) => item > accum? item:accum,-Infinity)
+//5.________________________________________________
+function getMax(array) {
+  return array.reduce((accum, item) => item > accum ? item : accum, -Infinity)
 }
 console.log(`Get max of [1, 3, 0, 24, 335, -125] : ${getMax(ar2)}`);
 
-function getAvg(array){
-  return +((array.reduce((accum,item)=>accum +=item,0) / array.length).toFixed(2))
+//6.________________________________________________
+function getAvg(array) {
+  return +((array.reduce((accum, item) => accum += item, 0) / array.length).toFixed(2))
 }
 console.log(`Get avg of [1, 3, 0, 24, 335, -125] : ${getAvg(ar2)}`);
-function getMinAvgMax(array){
+//7.________________________________________________
+function getMinAvgMax(array) {
   const result = [];
-  result[1] = array.reduce((accum,item) => {
-    if(item < array[0]){
+  result[1] = +(array.reduce((accum, item) => {
+    if (item < array[0]) {
       result[0] = item;
-    }else if(item > array[0]){
+    } else if (item > array[0]) {
       result[2] = item
     }
-    return accum+ item;
-  }) / array.length
+    return accum + item;
+  }) / array.length).toFixed(2)
   return result;
 }
-console.log(getMinAvgMax(ar2));
+console.log(`GetMinAvgMax [${getMinAvgMax(ar2)}]`);
