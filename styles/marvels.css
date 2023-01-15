@@ -19,7 +19,8 @@ body {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    background-color: #ece1d8
+    background-color: #ece1d8;
+    font-size:1.5vw;
 }
 
 #guess-button {
