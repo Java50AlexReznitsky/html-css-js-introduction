@@ -21,7 +21,6 @@ const questionsWords = [
   ['Which US state is famous for Hollywood?', 'california']
 ];
 
-let currentIndex = 0;
 let initialLettersNumber;
 let remainedLettersNumber;
 let questionAnswer;
