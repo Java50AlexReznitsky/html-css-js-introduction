@@ -1,28 +1,30 @@
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: bisque;
-}
-
 .word {
     display: flex;
+    font-size: 5vw;
+
 }
 
 .letter {
     margin-left: 1vw;
     background-color: black;
     color: black;
-    border-radius: 0.1vw;
-    width: 4vw;
-    height: 4vw;
+    width: 9.5vw;
+    height: 8vw;
+    border-radius: 0.5vw;
+    padding-top: 1.5vw;
 }
 
-#word-input {
+body {
     display: flex;
     align-items: center;
+    flex-direction: column;
     text-align: center;
+    background-color: #ece1d8
 }
-#question{
-    text-align: center;
+
+#guess-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw;
 }
