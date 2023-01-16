@@ -8,7 +8,7 @@ const resultMessage = document.getElementById("result-message");
 const playAgain = document.getElementById("play-again");
 let wordLettersElement;
 
-// global variables                                         
+             
 const questionsWords = [
   ['Which big cat is the largest?', 'tiger'],
   ['Which is the largest planet in the solar system?', 'jupiter'],
@@ -20,7 +20,7 @@ const questionsWords = [
   ['Whose nose grew longer every time he lied?', 'pinocchio'],
   ['Which US state is famous for Hollywood?', 'california']
 ];
-
+//000
 let initialLettersNumber;
 let remainedLettersNumber;
 let questionAnswer;
