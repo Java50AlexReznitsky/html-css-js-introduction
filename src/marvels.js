@@ -8,8 +8,7 @@ const resultMessage = document.getElementById("result-message");
 const playAgain = document.getElementById("play-again");
 let wordLettersElement;
 
-// global variables  
-//                                       
+             
 const questionsWords = [
   ['Which big cat is the largest?', 'tiger'],
   ['Which is the largest planet in the solar system?', 'jupiter'],
