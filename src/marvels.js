@@ -20,7 +20,7 @@ const questionsWords = [
   ['Whose nose grew longer every time he lied?', 'pinocchio'],
   ['Which US state is famous for Hollywood?', 'california']
 ];
-
+//000
 let initialLettersNumber;
 let remainedLettersNumber;
 let questionAnswer;
