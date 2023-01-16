@@ -52,13 +52,16 @@ function getWordDivs() {
 }
 
 function checkWord() {
-  if (wordInputElement.value === questionAnswer[1]) {
+  if ((wordInputElement.value).toLowerCase() === questionAnswer[1]) {
     finishGame("Congratulations, you guessed the word!");
     for (let i = 0; i < questionAnswer[1].length; i++) {
       document.getElementById(`letter${i}`).style.backgroundColor = "white";
     }
   } else {
     finishGame("Sorry, the word is incorrect.");
+    for (let i = 0; i < questionAnswer[1].length; i++) {
+      document.getElementById(`letter${i}`).style.backgroundColor = "red";
+    }
   }
 }
 
@@ -67,7 +70,7 @@ function processLetter() {
     remainedLettersNumber--;
     remainedLettersElement.innerHTML = `${remainedLettersNumber} letter(s) to guess`;
     for (let i = 0; i < questionAnswer[1].length; i++) {
-      if (letterInputElement.value === questionAnswer[1][i]) {
+      if ((letterInputElement.value).toLowerCase() === questionAnswer[1][i]) {
         document.getElementById(`letter${i}`).style.backgroundColor = "white";
       }
     }
