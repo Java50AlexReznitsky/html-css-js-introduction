@@ -8,7 +8,7 @@ const resultMessage = document.getElementById("result-message");
 const playAgain = document.getElementById("play-again");
 let wordLettersElement;
 
-             
+
 const questionsWords = [
   ['Which big cat is the largest?', 'tiger'],
   ['Which is the largest planet in the solar system?', 'jupiter'],
@@ -20,7 +20,6 @@ const questionsWords = [
   ['Whose nose grew longer every time he lied?', 'pinocchio'],
   ['Which US state is famous for Hollywood?', 'california']
 ];
-//000
 let initialLettersNumber;
 let remainedLettersNumber;
 let questionAnswer;
@@ -46,14 +45,14 @@ function getWord() {
 function getWordDivs() {
   let wordDivs = "";
   for (let i = 0; i < questionAnswer[1].length; i++) {
-    wordDivs += `<div class="letter" id="letter${i}">${questionAnswer[1][i]}</div>`;
+    wordDivs += `<div class="letter" id="letter${i}">${(questionAnswer[1][i]).toUpperCase()}</div>`;
   }
   return wordDivs;
 }
 
 function checkWord() {
-  if(wordInputElement.value > (questionAnswer[1].length) || wordInputElement.value < (questionAnswer[1].length)){
-    alert("The word must contain letters");////////
+  if ((wordInputElement.value).length > (questionAnswer[1].length) || (wordInputElement.value).length < (questionAnswer[1].length)) {
+    alert("The word must contain " + questionAnswer[1].length + " letters");
   }
   if ((wordInputElement.value).toLowerCase() === questionAnswer[1]) {
     finishGame("Congratulations, you guessed the word!");
