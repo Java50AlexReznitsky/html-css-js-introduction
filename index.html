@@ -16,11 +16,11 @@
     <section class="field">
         <p id="question"></p>
         <input type="text" readonly onchange="checkWord()" id="word-input" placeholder="enter word">
+        <button id="guess-button" onclick="takeChance()">guess the word</button>
         <p id="letters-remained"></p>
-        <input type="text" minlength="1" maxlength="1" onchange="processLetter()" id="letter-input">
+        <input type="text" minlength="1" maxlength="1" onchange="processLetter()" id="letter-input" placeholder="enter letter">
 
     </section>
-    <button id="guess-button" onclick="takeChance()">guess</button>
     <section class="word">
 
     </section>

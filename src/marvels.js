@@ -52,6 +52,9 @@ function getWordDivs() {
 }
 
 function checkWord() {
+  if(wordInputElement.value > (questionAnswer[1].length) || wordInputElement.value < (questionAnswer[1].length)){
+    alert("The word must contain letters");////////
+  }
   if ((wordInputElement.value).toLowerCase() === questionAnswer[1]) {
     finishGame("Congratulations, you guessed the word!");
     for (let i = 0; i < questionAnswer[1].length; i++) {

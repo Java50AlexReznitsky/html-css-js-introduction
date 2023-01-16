@@ -24,8 +24,13 @@ body {
 }
 
 #guess-button {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     margin: 1vw;
+}
+
+#letter-input {
+    margin: 1vw;
+
 }
