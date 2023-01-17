@@ -28,6 +28,7 @@ function startGame() {
   wordInputElement.value = "";
   wordInputElement.readOnly = true;
   letterInputElement.readOnly = false;
+  letterInputElement.hidden = false;
   questionAnswer = getWord();
   questionElement.innerHTML = questionAnswer[0]
   playAgain.style.display = "none";
@@ -81,6 +82,7 @@ function processLetter() {
       remainedLettersElement.innerHTML = 'Your attempts to guess the letter are over, guess the word!'
       wordInputElement.readOnly = false;
       letterInputElement.readOnly = true;
+      letterInputElement.hidden = true;
     }
   }
 }
@@ -88,6 +90,7 @@ function processLetter() {
 function takeChance() {
   wordInputElement.readOnly = false;
   letterInputElement.readOnly = true;
+  letterInputElement.hidden = true;
 }
 
 function finishGame(message) {
