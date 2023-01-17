@@ -57,7 +57,7 @@ console.log(getEmployeeNames(employees));
 function sortEmployeesByAge(employees) {//descending birthYear
     return employees.sort((a, b) => b.birthYear - a.birthYear);
 }
-console.log("Sort employees by age_________________________________________")
+console.log("Ascending sorting employees by age_________________________________________")
 console.log(sortEmployeesByAge(employees));
 
 
@@ -66,4 +66,4 @@ function computeSalaryBudget(employees) {//reduce
     return employees.reduce((acc, cur) => acc + cur.salary, 0);
 }
 console.log("Compute salary budget_________________________________________")
-console.log(computeSalaryBudget(employees)+" NIS");
+console.log(computeSalaryBudget(employees) + " NIS");
