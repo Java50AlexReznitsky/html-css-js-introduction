@@ -22,26 +22,14 @@ console.log(getEmployee(employees, 125))
 
 //2._______________________________________________________________
 function getEmployeesBySalary(employees, salaryFrom, salaryTo) {
-    const emplArray = [];
-    employees.forEach(function (empl) {
-        if (empl.salary >= salaryFrom && empl.salary <= salaryTo) {
-            emplArray.push(empl);
-        }
-    })
-    return emplArray;
+    return employees.filter(empl => empl.salary >= salaryFrom && empl.salary <= salaryTo);
 }
 console.log("Get employee by salary_________________________________________")
 console.log(getEmployeesBySalary(employees, 15000, 20000));
 
 //3.______________________________________________________________
 function getEmployeeByCity(employees, city) {
-    const emplArray = []
-    employees.forEach(function (empl) {
-        if (empl.address.city === city) {
-            emplArray.push(empl);
-        }
-    })
-    return emplArray;
+    return employees.filter(empl => empl.address.city === city);
 }
 console.log("Get employee by city_________________________________________")
 console.log(getEmployeeByCity(employees, "Tel-Aviv"));
