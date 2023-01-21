@@ -11,50 +11,6 @@ const employees = [
     createEmployee(129, "Sasha", 2000, 25000, "Ramat-Gan", "Israel"),
     createEmployee(130, "Victor", 2003, 10000, "Arad", "Israel")
 ]
-//HW18
-
-//1._______________________________________________________________
-function getEmployee(employees, id) {
-    return employees.find(empl => empl.id == id);
-}
-// console.log("Get employee by id_________________________________________")
-// console.log(getEmployee(employees, 125))
-
-//2._______________________________________________________________
-function getEmployeesBySalary(employees, salaryFrom, salaryTo) {
-    return employees.filter(empl => empl.salary >= salaryFrom && empl.salary <= salaryTo);
-}
-// console.log("Get employee by salary_________________________________________")
-// console.log(getEmployeesBySalary(employees, 15000, 20000));
-
-//3.______________________________________________________________
-function getEmployeeByCity(employees, city) {
-    return employees.filter(empl => empl.address.city === city);
-}
-// console.log("Get employee by city_________________________________________")
-// console.log(getEmployeeByCity(employees, "Tel-Aviv"));
-
-//4._____________________________________________________________
-function getEmployeeNames(employees) {
-    return emplNames = employees.map((empl) => empl.name);
-}
-// console.log("Get employee names_________________________________________")
-// console.log(getEmployeeNames(employees));
-
-//5._____________________________________________________________
-function sortEmployeesByAge(employees) {//descending birthYear
-    return employees.sort((a, b) => b.birthYear - a.birthYear);
-}
-// console.log("Ascending sorting employees by age_________________________________________")
-// console.log(sortEmployeesByAge(employees));
-
-
-//6._____________________________________________________________
-function computeSalaryBudget(employees) {//reduce
-    return employees.reduce((acc, cur) => acc + cur.salary, 0);
-}
-// console.log("Compute salary budget_________________________________________")
-// console.log(computeSalaryBudget(employees) + " NIS");
 
 let field = "salary";
 // console.log(employees[0][field])
