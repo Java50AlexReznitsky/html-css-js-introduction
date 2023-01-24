@@ -12,36 +12,45 @@ const employees = [
     createEmployee(129, "Sasha", 2000, 25000, "Ramat-Gan", "Israel"),
     createEmployee(130, "Victor", 2003, 10000, "Arad", "Israel")
 ]
-// function getMostPopulatedCountry(employees) {
-//     //returns country with most amount of employees 
-//     const countriesArr = Object.entries(employees.reduce((acc, curr) => {
-//         acc[curr.address.country] = (acc[curr.address.country] || 0) + 1;//if object already contains curr.address.country, it will be ++
-//         return acc;                                                    //otherwise, field curr.address.country = 1 will be created in obj 
-//     }, {}));
-//     const sortedCountries = countriesArr.sort((entry1, entry2) => entry2[1] - entry1[1]);
-//     return sortedCountries[0][0];
-// }
 function getMostPopulatedCountry(employees) {
-    // const countriesArr = Object.entries(employees.reduce((acc, curr) => {
-    //     acc[curr.address.country] = (acc[curr.address.country] || 0) + 1;//if object already contains curr.address.country, it will be ++
-    //     return acc;                                                    //otherwise, field curr.address.country = 1 will be created in obj 
-    // }, {})).sort((entry1, entry2) => entry2[1] - entry1[1]);
-    // // countriesArr.sort((entry1, entry2) => entry2[1] - entry1[1]);
-    // return countriesArr[0][0];
-    return (Object.entries(employees.reduce((acc, curr) => {
+    //returns country with most amount of employees 
+    const countriesArr = Object.entries(employees.reduce((acc, curr) => {
         acc[curr.address.country] = (acc[curr.address.country] || 0) + 1;//if object already contains curr.address.country, it will be ++
         return acc;                                                    //otherwise, field curr.address.country = 1 will be created in obj 
-    }, {})).sort((entry1, entry2) => entry2[1] - entry1[1]))[0][0];
-    // countriesArr.sort((entry1, entry2) => entry2[1] - entry1[1]);
-    // return countriesArr[0][0];
+    }, {}));
+    const sortedCountries = countriesArr.sort((entry1, entry2) => entry2[1] - entry1[1]);
+    return sortedCountries[0][0];
 }
-console.log("getMost " + getMostPopulatedCountry(employees))
-//                                           //number
+console.log(getMostPopulatedCountry(employees))
+
 function getMostPopulatedCountries(employees, counter) {
-    //TODO
-    //returns a given number of countries with most amount of employees 
+    //returns country with most amount of employees 
+    const countriesArr = Object.entries(employees.reduce((acc, curr) => {
+        acc[curr.address.country] = (acc[curr.address.country] || 0) + 1;//if object already contains curr.address.country, it will be ++
+        return acc;                                                    //otherwise, field curr.address.country = 1 will be created in obj 
+    }, {}));
+    const sortedCountries = countriesArr.sort((entry1, entry2) => entry2[1] - entry1[1]);
+    const res = [];
+    for (let i = 0; i < counter; i++) {
+        res.push(sortedCountries[i][0]);
+    }
+    return res;
 }
+console.log(getMostPopulatedCountries(employees, 3));
+// function getMostPopulatedCountryShort(employees) {
+//     return (Object.entries(employees.reduce((acc, curr) => {
+//         acc[curr.address.country] = (acc[curr.address.country] || 0) + 1;//if object already contains curr.address.country, it will be ++
+//         return acc;                                                    //otherwise, field curr.address.country = 1 will be created in obj 
+//     }, {})).sort((entry1, entry2) => entry2[1] - entry1[1]))[0][0];
+// }
+//                                           //number
 function isAnagram(word, anagram) {
+    if (word.length !== anagram.length) {
+        return "Error: anagram should have the same length as word "
+    }
+    const letters = Array.from(word);
+    const lettersOccurrences = getStringsOccurrences(letters)
+    const anagramLetters = Array.from(anagram);
     //TODO
     //returns true if a given anagram is indeed anagram of a given word
     //anagram should have the same length as word
