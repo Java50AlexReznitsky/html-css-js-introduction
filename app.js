@@ -60,10 +60,10 @@ function displayStringOccurrences(strings) {
 function getStringOccurrences(strings) {
     const res = {};
     strings.forEach(str => {
-        if (!res[str]) { //field of object
-            res[str] = 1;
+        if (!res[str]) { //if the field is not exist in obj
+            res[str] = 1;//create a field and assign 1
         } else {
-            res[str]++;
+            res[str]++;//if the field exists in obj, increment it by 1 (++)
         }
     })
     return res;
