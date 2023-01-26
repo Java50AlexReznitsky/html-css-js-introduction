@@ -1,4 +1,3 @@
-//HW-19
 function createEmployee(id, name, birthYear, salary, city, country) {
     return { id, name, birthYear, salary, address: { city, country } }
 }
@@ -13,48 +12,92 @@ const employees = [
     createEmployee(130, "Victor", 2003, 10000, "Arad", "Israel")
 ]
 function getMostPopulatedCountry(employees) {
-    //returns country with most amount of employees 
-    const countriesArr = Object.entries(employees.reduce((acc, curr) => {
-        acc[curr.address.country] = (acc[curr.address.country] || 0) + 1;//if object already contains curr.address.country, it will be ++
-        return acc;                                                    //otherwise, field curr.address.country = 1 will be created in obj 
-    }, {}));
-    const sortedCountries = countriesArr.sort((entry1, entry2) => entry2[1] - entry1[1]);
+    const countryOccurrence = getCountryOccurrence(employees);
+    const arrayOfCountriesByOccur = Object.entries(countryOccurrence);
+    const sortedCountries = arrayOfCountriesByOccur.sort((a, b) => b[1] - a[1]);
     return sortedCountries[0][0];
 }
-console.log(getMostPopulatedCountry(employees))
-
+// console.log(getMostPopulatedCountry(employees));
 function getMostPopulatedCountries(employees, counter) {
-    //returns country with most amount of employees 
-    const countriesArr = Object.entries(employees.reduce((acc, curr) => {
-        acc[curr.address.country] = (acc[curr.address.country] || 0) + 1;//if object already contains curr.address.country, it will be ++
-        return acc;                                                    //otherwise, field curr.address.country = 1 will be created in obj 
-    }, {}));
-    const sortedCountries = countriesArr.sort((entry1, entry2) => entry2[1] - entry1[1]);
-    const res = [];
-    for (let i = 0; i < counter; i++) {
-        res.push(sortedCountries[i][0]);
+    const countryOccurrence = getCountryOccurrence(employees);
+    const arrayOfCountriesByOccur = Object.entries(countryOccurrence);
+    const sortedCountries = arrayOfCountriesByOccur.sort((a, b) => b[1] - a[1]).slice(0, counter);
+    const resCountries = [];
+    for (let i = 0; i < sortedCountries.length; i++) {
+        resCountries.push(sortedCountries[i][0]);
+    }
+    return resCountries;
+}
+// console.log(getMostPopulatedCountries(employees, 2));
+
+function getCountryOccurrence(employees) {
+    return employees.reduce((prev, empl) => {
+        prev[empl.address.country] = (prev[empl.address.country] || 0) + 1;
+        return prev
+    }, {});
+    // const res = {};
+    // employees.forEach(str => {
+    //     res[str.address.country] = (res[str.address.country] || 0) + 1;
+    // });
+    // employees.forEach(empl => {
+    //     if (!res[empl.address.country]) {
+    //         res[empl.address.country] = 1;
+    //     } else {
+    //         res[empl.address.country]++;
+    //     }
+    // })
+    // return res;
+}
+function getStringOccurrences(strings) {
+    const res = {};
+    strings.forEach(str => {
+        if (!res[str]) { //if the field is not exist in obj
+            res[str] = 1;//create a field and assign 1
+        } else {
+            res[str]++;//if the field exists in obj, increment it by 1 (++)
+        }
+    })
+    return res;
+}
+function isAnagram(word, anagram) {
+    let res = false;
+    if (word.length === anagram.length) {
+        const letters = Array.from(word);
+        const lettersOccurrences = getStringOccurrences(letters);
+        const anagramLetters = Array.from(anagram);
+
+        return anagramLetters.every(letter => {
+            let res = false;
+            if (lettersOccurrences[letter]) {
+                res = true;
+                lettersOccurrences[letter]--;
+                if (lettersOccurrences[letter] == 0) {
+                    delete lettersOccurrences[letter];
+                }
+            }
+            return res;
+        })
+    }
+}
+function isAnagram2(word, anagram) {
+    let res = false
+    if (word.length === anagram.length) {
+        res = true;
+
+        //     const wordLetters = {};
+        //     const anagramLetters = {};
+        //     for (const letter of word) {
+        //         wordLetters[letter] = (wordLetters[letter] || 0) + 1;
+        //     }
+        //     for (const letter of anagram) {
+        //         anagramLetters[letter] = (anagramLetters[letter] || 0) + 1;
+        //     }
+        //     for (const [key, value] of Object.entries(wordLetters)) {
+        //         if (!(key in anagramLetters) || anagramLetters[key] !== value) {
+        //             return false;
+        //         }
+        //     }
     }
     return res;
 }
-console.log(getMostPopulatedCountries(employees, 3));
-// function getMostPopulatedCountryShort(employees) {
-//     return (Object.entries(employees.reduce((acc, curr) => {
-//         acc[curr.address.country] = (acc[curr.address.country] || 0) + 1;//if object already contains curr.address.country, it will be ++
-//         return acc;                                                    //otherwise, field curr.address.country = 1 will be created in obj 
-//     }, {})).sort((entry1, entry2) => entry2[1] - entry1[1]))[0][0];
-// }
-//                                           //number
-function isAnagram(word, anagram) {
-    if (word.length !== anagram.length) {
-        return "Error: anagram should have the same length as word "
-    }
-    const letters = Array.from(word);
-    const lettersOccurrences = getStringsOccurrences(letters)
-    const anagramLetters = Array.from(anagram);
-    //TODO
-    //returns true if a given anagram is indeed anagram of a given word
-    //anagram should have the same length as word
-    //anagram must have only same letters as word
-    //"hello" anagram examples: elolh,olleh,ohell,lehol
-    //examples of non-anagrams : eloll 
-}
+console.log(isAnagram("hello", "olleh"));
