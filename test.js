@@ -65,7 +65,8 @@ function isAnagram(word, anagram) {
         const letters = Array.from(word);
         const lettersOccurrences = getStringOccurrences(letters);
         const anagramLetters = Array.from(anagram);
-        res = anagramLetters.every(letter => {
+
+        return anagramLetters.every(letter => {
             let res = false;
             if (lettersOccurrences[letter]) {
                 res = true;
@@ -77,8 +78,6 @@ function isAnagram(word, anagram) {
             return res;
         })
     }
-    return res;
-
 }
 function isAnagram2(word, anagram) {
     let res = false
