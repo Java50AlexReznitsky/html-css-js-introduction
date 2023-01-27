@@ -14,6 +14,15 @@ hideButtonElement.addEventListener("click", hideDetails);
 const HIDDEN = "hidden";
 const IS_POINT = "is-point";
 const TITLE_LIMIT = 50;
+// function getDetailsTitle(text, limit) { // yuriy version of text limitation
+//     while (!isDelimiter(text[limit])) {
+//         limit--;
+//     }
+//     return text.slice(0, limit) + "...";
+// }
+// function isDelimiter(symbol) {
+//     return symbol === " ";
+// }
 
 function showDetails(index) {
     console.log(`${httpPrefix}${data.results[index].backdrop_path}`)
