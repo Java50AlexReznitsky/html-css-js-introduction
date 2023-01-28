@@ -28,16 +28,16 @@ class Rectangle {
     }
 }
 const rectangle1 = new Rectangle(3, 4);
-console.log(rectangle1.getHeight());
-console.log(rectangle1.square());
-console.log(rectangle1.perimeter());
+// console.log(rectangle1.getHeight());
+// console.log(rectangle1.square());
+// console.log(rectangle1.perimeter());
 
 /*
 HW-21
 Employee  structure and  function createEmployee taken from previous HW
 */
 function createEmployee(id, name, birthYear, salary, city, country) {
-    return { id, name, birthYear, salary, address: { city, country } }
+    return { [id]: { name, birthYear, salary, address: { city, country } } }
 }
 const employees = [
     createEmployee(123, "Vasya", 2000, 15000, "Lod", "Israel"),
@@ -49,7 +49,7 @@ const employees = [
     createEmployee(129, "Sasha", 2000, 25000, "Ramat-Gan", "Israel"),
     createEmployee(130, "Victor", 2003, 10000, "Arad", "Israel")
 ]
-
+console.log(employees)
 class Company {
     #employees//object key:<id value>,value:reference to Employee object
     constructor() {
