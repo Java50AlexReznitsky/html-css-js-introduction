@@ -17,6 +17,9 @@ class Rectangle {
         this.#height = height;
         this.#width = width;
     }
+    getHeight() {
+        return this.#height;
+    }
     square() {
         return this.#height * this.#width
     }
@@ -25,6 +28,7 @@ class Rectangle {
     }
 }
 const rectangle1 = new Rectangle(3, 4);
+console.log(rectangle1.getHeight());
 console.log(rectangle1.square());
 console.log(rectangle1.perimeter());
 
