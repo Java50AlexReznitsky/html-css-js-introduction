@@ -1,35 +1,58 @@
-const employee1 = {123: { name: "Vasya", birthYear: 2000, salary: 15000, address: { city: "Lod", country: "Israel" } },
-   
-}
-function createEmployee(id, name, birthYear, salary, city, country) {
-    return { [id]: { name, birthYear, salary, address: { city, country } } }
-}
+/* HW #21 */
 class Employee {
-    #id;
-    #name;
-    #birthYear;
-    #salary;
-    #address;
-    #city;
-    #country;
-    constructor(id, name, birthYear, salary, address) {//, address, city, country)
-        this.#id = id;
-        this.#name = name;
-        this.#birthYear = birthYear;
-        this.#salary = salary;
-        this.#address = address;
-        this.#city = address.city;
-        this.#country = address.country;
-    }
-    getId() {
-        return this.#id;
-    }
-    getCity() {
-        return this.#city;
+    constructor(id, name, birthYear, salary, city, country) {
+        this.id = id;
+        this.name = name;
+        this.birthYear = birthYear;
+        this.salary = salary;
+        this.address = { city, country };
     }
 }
-const empl2 = new Employee(124, "Sasha", 1995, 10000, { city: "Natania", country: "Israel" });
-const empl1 = new Employee(123, "John", 1990, 20000, { city: "Rehovot", country: "Israel" });
-// console.log(empl1.address);
-// empl1.city = "Beer-Sheva";
-console.log(empl1);
+
+class Company {
+    #employees
+    constructor() {
+        this.#employees = {};
+    }
+    addEmployee(empl) {
+        return this.employees[empl.id] ? false : (this.#employees[empl.id] = empl, true);
+    }
+    removeEmployee(id) {
+        return this.#employees[id] ? (delete this.#employees[id], true) : false;
+    }
+    getEmployeesCountry(country) {
+        return Object.values(this.#employees).filter(empl => empl.address.country == country);
+    }
+    getEmployeesBySalaries(salaryFrom, salaryTo) {
+        return Object.values(this.#employees).filter(empl => empl.salary >= salaryFrom && empl.salary <= salaryTo);
+    }
+    getEmployeesByAge(age) {
+        const currentYear = new Date().getFullYear();
+        return Object.values(this.employees).filter(employee => currentYear - employee.birthYear === age);
+    }
+    get employees() {
+        return this.#employees;
+    }
+}
+
+const myCompany = new Company();
+
+myCompany.addEmployee(emp1 = new Employee(123, "Vasya", 2000, 15000, "Lod", "Israel"));
+myCompany.addEmployee(emp2 = new Employee(124, "David", 1975, 15500, "Tel Aviv", "Israel"));
+myCompany.addEmployee(emp3 = new Employee(125, "Sara", 1985, 20000, "New York", "USA"));
+myCompany.addEmployee(emp4 = new Employee(126, "Abraham", 1990, 13000, "London", "UK"));
+myCompany.addEmployee(emp5 = new Employee(127, "Moshe", 2000, 15000, "Rehovot", "Israel"));
+myCompany.addEmployee(emp6 = new Employee(128, "Goga", 1993, 10000, "Tbilisi", "Gorgia"));
+myCompany.addEmployee(emp7 = new Employee(129, "Sasha", 2000, 25000, "Ramat Gan", "Israel"));
+myCompany.addEmployee(emp8 = new Employee(130, "Victor", 2003, 10000, "Arad", "Israel"));
+
+
+// console.log(myCompany.employees);
+// console.log(myCompany.removeEmployee(125));
+// console.log(myCompany.employees);
+// console.log(getEmployeesCountry(Israel))
+// console.log(myCompany.getEmployeesCountry("Gorgia"))
+// console.log(myCompany.getEmployeesBySalaries(15400, 15600))
+// console.log(myCompany.employees);
+console.log(myCompany.getEmployeesByAge(23));
+
