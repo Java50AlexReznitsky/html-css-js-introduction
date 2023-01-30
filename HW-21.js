@@ -20,7 +20,7 @@ class Company {
     removeEmployee(id) {
         return this.#employees[id] ? (delete this.#employees[id], true) : false;
     }
-    getEmployeesCountry(country) {
+    getEmployeesByCountry(country) {
         return Object.values(this.#employees).filter(empl => empl.address.country == country);
     }
     getEmployeesBySalaries(salaryFrom, salaryTo) {
