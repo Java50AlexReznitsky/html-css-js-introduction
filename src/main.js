@@ -11,17 +11,25 @@ const schema = [
     { columnName: 'City', fieldName: 'city' }
 ]
 const company = new Company();
-const employeeForm = new EmployeeForm("form-section")
+const buttonElement = document.querySelector(".button");
+let employeeForm = null;
+buttonElement.addEventListener('click', function () {
+    employeeForm = new EmployeeForm("form-section");
+});
+
+
+// employeeForm = formView();
+
 const tableEmployees = new Table("table-section", "Employees", schema);
 function addEmployee(employeeData) {
-console.log(employeeData)
+    // console.log(employeeData)
 
     const employee = createEmployee(employeeData.name,
         +employeeData.birthYear, +employeeData.salary,
         employeeData.city, employeeData.country);
     const res = company.addIdToEmployee(employee);
     if (!res.message) {
-        employeeData.id = res.id;
+        employeeData.id = res.id;// employee with id
         tableEmployees.addRow(employeeData);
     }
     return res.message;

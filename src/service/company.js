@@ -15,7 +15,7 @@ export class Company {
         const id = this.#getId();
         if (res === '') {
             empl.id = id;
-            this.#employees[id] = empl;
+            this.#employees[id] = empl;//creates new field id, and assign empl-object
         }
         return { message: res, id: id };
     }

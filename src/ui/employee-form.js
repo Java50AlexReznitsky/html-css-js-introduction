@@ -52,12 +52,13 @@ export class EmployeeForm {
         this.#citiesElement.innerHTML = employeeConfig.countries[this.#countriesElement.value]
             .map(city => `<option value="${city}">${city}</option>`)
     }
-    addFormHandler(handlerFun) { 
+    addFormHandler(handlerFun) {
         this.#formElement.addEventListener('submit', (event) => {
             event.preventDefault(); //canceling default handler of "submit"
             const employeeData = Array.from(this.#inputElements)
                 .reduce((res, inputElement) => {
                     res[inputElement.name] = inputElement.value;
+                    console.log(res.city);///
                     return res;//       obj without id
                 }, {});//   addEmployee(employeeData)
             const message = handlerFun(employeeData);

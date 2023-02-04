@@ -1,11 +1,11 @@
 export class Table {
     #schema //array of objects {columnName: <string>, fieldName: <schema>}
     #tbodyElement
-    constructor(parentId, tableName, schema) {
+    constructor(parentId, tableName, schema) {//      table-section
         const parentElement = document.getElementById(parentId);
         this.#schema = schema;
         if (!parentElement) {
-            throw `wrong parentId ${parentId}`
+            throw `wrong parentId ${parentId}`// ask in webinar
         }
         parentElement.innerHTML =
             ` <h3 class="table-logo">${tableName} </h3>
