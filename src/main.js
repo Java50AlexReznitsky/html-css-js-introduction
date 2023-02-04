@@ -11,14 +11,14 @@ const schema = [
     { columnName: 'City', fieldName: 'city' }
 ]
 const company = new Company();
+//HW-23
+////////////////////////////////////////////////////////////////////////////////////////////////////
 const buttonElement = document.querySelector(".button");
 let employeeForm = null;
 buttonElement.addEventListener('click', function () {
     employeeForm = new EmployeeForm("form-section");
 });
-
-
-// employeeForm = formView();
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 const tableEmployees = new Table("table-section", "Employees", schema);
 function addEmployee(employeeData) {
