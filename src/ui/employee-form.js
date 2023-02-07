@@ -10,32 +10,38 @@ export class EmployeeForm {
         if (!parentFormElement) {
             throw `wrong parent id ${idParentForm}`;
         }
-        parentFormElement.innerHTML = `
-        <form id="employee-form">
-            <input required name="name" placeholder="enter employee name" class="form-input">
-            <input required name="birthYear" type="number" placeholder="enter birthYear" class="form-input">
-            <input required name="salary" type="number" placeholder="enter salary" class="form-input">
-            <div class="form-select-group">
-                <label>Select Country</label>
-                <select name="country" id="countries" class="form-select">
-                    <option value="uuuu"></option>
-                    
-                </select>
-            </div>
-            <div class="form-select-group">
-                <label>Select City</label>
-                <select name="city" id="cities" class="form-select">
-                    <option value="uuuu"></option>
-                    
-                </select>
-            </div>
-            <div class="form-buttons">
-                <button type="submit">Submit</button>
-                <button type="reset">Reset</button>
-            </div>
+        //if(the button addEmployee pressed){
+            parentFormElement.innerHTML = `
+            <form id="employee-form">
+                <input required name="name" placeholder="enter employee name" class="form-input">
+                <input required name="birthYear" type="number" placeholder="enter birthYear" class="form-input">
+                <input required name="salary" type="number" placeholder="enter salary" class="form-input">
+                <div class="form-select-group">
+                    <label>Select Country</label>
+                    <select name="country" id="countries" class="form-select">
+                        <option value="uuuu"></option>
+                        
+                    </select>
+                </div>
+                <div class="form-select-group">
+                    <label>Select City</label>
+                    <select name="city" id="cities" class="form-select">
+                        <option value="uuuu"></option>
+                        
+                    </select>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+    
+            </form>
+            `
+        //}
+        // else if(check if button showEmployee is pressed){
+            //parentFormElement.innerHTML = null;
 
-        </form>
-        `
+        // }
         this.#formElement = document.getElementById("employee-form");
         this.#countriesElement = document.getElementById("countries");
         this.#citiesElement = document.getElementById("cities");

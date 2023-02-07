@@ -1,6 +1,7 @@
 import { Company, createEmployee } from "./service/company.js";
 import { EmployeeForm } from "./ui/employee-form.js";
 import { Table } from "./ui/table.js";
+// import { Tabs } from "./ui/tabs.js";
 
 const schema = [
     { columnName: 'Employee ID', fieldName: 'id' },
@@ -13,14 +14,19 @@ const schema = [
 const company = new Company();
 //HW-23
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-const buttonElement = document.querySelector(".button");
-let employeeForm = null;
-buttonElement.addEventListener('click', function () {
-    employeeForm = new EmployeeForm("form-section");
-});
+const formButtonElement = document.querySelector(".form-button");
+const tableButtonElement = document.querySelector(".table-button");
+// const tab1 = new Tabs();
+// formButtonElement.addEventListener('click',tab1.addEmpl());
+// let employeeForm = {};
+// formButtonElement.addEventListener('click', function () {
+let employeeForm = new EmployeeForm("form-section");
+// });
+// let tableEmployees = {};
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-const tableEmployees = new Table("table-section", "Employees", schema);
+// tableButtonElement.addEventListener('click',function(){
+tableEmployees = new Table("table-section", "Employees", schema);
+// })
 function addEmployee(employeeData) {
     // console.log(employeeData)
 
