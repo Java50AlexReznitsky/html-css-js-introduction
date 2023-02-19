@@ -35,3 +35,6 @@ button {
 .is-active{
     background-color: aqua;
 }
+.is-not-active{
+    background-color: white;
+}
