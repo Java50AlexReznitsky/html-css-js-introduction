@@ -1,40 +1,7 @@
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.hidden {
+    display: none;
 }
 
-input {
-    font-size: 5vw;
-    text-align: center;
-    width: 22vw;
-    margin: 1px;
-    border: solid;
-    border-width: 2px;
-    border-radius: 1vw;
-}
-
-button {
-    font-size: 5vw;
-    border: solid;
-    border-width: 2px;
-    border-radius: 1vw;
-}
-
-.section1 {
-    font-size: 5vw;
-    margin-top: 2px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    border: solid;
-    padding: 1vw;
-    border-radius: 1vw;
-}
-.is-active{
-    background-color: aqua;
-}
-.is-not-active{
-    background-color: white;
+.is-shown {
+    display: block;
 }
